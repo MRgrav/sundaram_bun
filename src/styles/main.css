@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Blue Color Range */
+.icon-blue-200 { filter: invert(64%) sepia(68%) saturate(6413%) hue-rotate(201deg) brightness(98%) contrast(93%); }
+.icon-blue-400 { filter: invert(43%) sepia(93%) saturate(6305%) hue-rotate(201deg) brightness(92%) contrast(87%); }
+.icon-blue-500 { filter: invert(37%) sepia(93%) saturate(6305%) hue-rotate(201deg) brightness(89%) contrast(84%); }
+.icon-blue-600 { filter: invert(31%) sepia(93%) saturate(6305%) hue-rotate(201deg) brightness(86%) contrast(81%); }
+.icon-blue-700 { filter: invert(25%) sepia(93%) saturate(6305%) hue-rotate(201deg) brightness(83%) contrast(78%); }
+
+/* Sky Color Range */
+.icon-sky-200 { filter: invert(88%) sepia(68%) saturate(6305%) hue-rotate(180deg) brightness(98%) contrast(93%); }
+.icon-sky-400 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(180deg) brightness(92%) contrast(87%); }
+.icon-sky-500 { filter: invert(47%) sepia(93%) saturate(6305%) hue-rotate(180deg) brightness(89%) contrast(84%); }
+.icon-sky-600 { filter: invert(39%) sepia(93%) saturate(6305%) hue-rotate(180deg) brightness(86%) contrast(81%); }
+.icon-sky-700 { filter: invert(31%) sepia(93%) saturate(6305%) hue-rotate(180deg) brightness(83%) contrast(78%); }
+
+/* Orange Color Range */
+.icon-orange-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(30deg) brightness(98%) contrast(93%); }
+.icon-orange-400 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(30deg) brightness(92%) contrast(87%); }
+.icon-orange-500 { filter: invert(47%) sepia(93%) saturate(6305%) hue-rotate(30deg) brightness(89%) contrast(84%); }
+.icon-orange-600 { filter: invert(39%) sepia(93%) saturate(6305%) hue-rotate(30deg) brightness(86%) contrast(81%); }
+.icon-orange-700 { filter: invert(31%) sepia(93%) saturate(6305%) hue-rotate(30deg) brightness(83%) contrast(78%); }
+
+/* Red Color Range */
+.icon-red-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(346deg) brightness(98%) contrast(93%); }
+.icon-red-400 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(346deg) brightness(92%) contrast(87%); }
+.icon-red-500 { filter: invert(47%) sepia(93%) saturate(6305%) hue-rotate(346deg) brightness(89%) contrast(84%); }
+.icon-red-600 { filter: invert(39%) sepia(93%) saturate(6305%) hue-rotate(346deg) brightness(86%) contrast(81%); }
+.icon-red-700 { filter: invert(31%) sepia(93%) saturate(6305%) hue-rotate(346deg) brightness(83%) contrast(78%); }
+
+/* Yellow Color Range (hue-rotate: 50deg) */
+.icon-yellow-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(50deg) brightness(98%) contrast(93%); }
+.icon-yellow-400 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(50deg) brightness(92%) contrast(87%); }
+.icon-yellow-500 { filter: invert(47%) sepia(93%) saturate(6305%) hue-rotate(50deg) brightness(89%) contrast(84%); }
+.icon-yellow-600 { filter: invert(39%) sepia(93%) saturate(6305%) hue-rotate(50deg) brightness(86%) contrast(81%); }
+.icon-yellow-700 { filter: invert(31%) sepia(93%) saturate(6305%) hue-rotate(50deg) brightness(83%) contrast(78%); }
+
+/* Green Color Range */
+.icon-green-200 { filter: invert(80%) sepia(68%) saturate(1000%) hue-rotate(100deg) brightness(98%) contrast(93%); }
+.icon-green-400 { filter: invert(64%) sepia(93%) saturate(1000%) hue-rotate(100deg) brightness(92%) contrast(87%); }
+.icon-green-500 { filter: invert(56%) sepia(93%) saturate(1000%) hue-rotate(100deg) brightness(89%) contrast(84%); }
+.icon-green-600 { filter: invert(48%) sepia(93%) saturate(1000%) hue-rotate(100deg) brightness(86%) contrast(81%); }
+.icon-green-700 { filter: invert(40%) sepia(93%) saturate(1000%) hue-rotate(100deg) brightness(83%) contrast(78%); }
+
+/* Teal Color Range */
+.icon-teal-200 { filter: invert(80%) sepia(68%) saturate(1000%) hue-rotate(160deg) brightness(98%) contrast(93%); }
+.icon-teal-400 { filter: invert(64%) sepia(93%) saturate(1000%) hue-rotate(160deg) brightness(92%) contrast(87%); }
+.icon-teal-500 { filter: invert(56%) sepia(93%) saturate(1000%) hue-rotate(160deg) brightness(89%) contrast(84%); }
+.icon-teal-600 { filter: invert(48%) sepia(93%) saturate(1000%) hue-rotate(160deg) brightness(86%) contrast(81%); }
+.icon-teal-700 { filter: invert(40%) sepia(93%) saturate(1000%) hue-rotate(160deg) brightness(83%) contrast(78%); }
+
+/* Zinc Color Range */
+.icon-zinc-200 { filter: invert(80%) sepia(68%) saturate(0%) hue-rotate(0deg) brightness(98%) contrast(93%); }
+.icon-zinc-400 { filter: invert(64%) sepia(93%) saturate(0%) hue-rotate(0deg) brightness(92%) contrast(87%); }
+.icon-zinc-500 { filter: invert(56%) sepia(93%) saturate(0%) hue-rotate(0deg) brightness(89%) contrast(84%); }
+.icon-zinc-600 { filter: invert(48%) sepia(93%) saturate(0%) hue-rotate(0deg) brightness(86%) contrast(81%); }
+.icon-zinc-700 { filter: invert(40%) sepia(93%) saturate(0%) hue-rotate(0deg) brightness(83%) contrast(78%); }
+
+/* Indigo Color Range */
+.icon-indigo-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(240deg) brightness(98%) contrast(93%); }
+.icon-indigo-400 { filter: invert(64%) sepia(93%) saturate(6305%) hue-rotate(240deg) brightness(92%) contrast(87%); }
+.icon-indigo-500 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(240deg) brightness(89%) contrast(84%); }
+.icon-indigo-600 { filter: invert(48%) sepia(93%) saturate(6305%) hue-rotate(240deg) brightness(86%) contrast(81%); }
+.icon-indigo-700 { filter: invert(40%) sepia(93%) saturate(6305%) hue-rotate(240deg) brightness(83%) contrast(78%); }
+
+/* Purple Color Range (hue-rotate: 270deg) */
+.icon-purple-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(270deg) brightness(98%) contrast(93%); }
+.icon-purple-400 { filter: invert(64%) sepia(93%) saturate(6305%) hue-rotate(270deg) brightness(92%) contrast(87%); }
+.icon-purple-500 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(270deg) brightness(89%) contrast(84%); }
+.icon-purple-600 { filter: invert(48%) sepia(93%) saturate(6305%) hue-rotate(270deg) brightness(86%) contrast(81%); }
+.icon-purple-700 { filter: invert(40%) sepia(93%) saturate(6305%) hue-rotate(270deg) brightness(83%) contrast(78%); }
+
+/* Rose Color Range (hue-rotate: 330deg) */
+.icon-rose-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(330deg) brightness(98%) contrast(93%); }
+.icon-rose-400 { filter: invert(64%) sepia(93%) saturate(6305%) hue-rotate(330deg) brightness(92%) contrast(87%); }
+.icon-rose-500 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(330deg) brightness(89%) contrast(84%); }
+.icon-rose-600 { filter: invert(48%) sepia(93%) saturate(6305%) hue-rotate(330deg) brightness(86%) contrast(81%); }
+.icon-rose-700 { filter: invert(40%) sepia(93%) saturate(6305%) hue-rotate(330deg) brightness(83%) contrast(78%); }
+
+/* Fuchsia Color Range (hue-rotate: 300deg) */
+.icon-fuchsia-200 { filter: invert(80%) sepia(68%) saturate(6305%) hue-rotate(300deg) brightness(98%) contrast(93%); }
+.icon-fuchsia-400 { filter: invert(64%) sepia(93%) saturate(6305%) hue-rotate(300deg) brightness(92%) contrast(87%); }
+.icon-fuchsia-500 { filter: invert(56%) sepia(93%) saturate(6305%) hue-rotate(300deg) brightness(89%) contrast(84%); }
+.icon-fuchsia-600 { filter: invert(48%) sepia(93%) saturate(6305%) hue-rotate(300deg) brightness(86%) contrast(81%); }
+.icon-fuchsia-700 { filter: invert(40%) sepia(93%) saturate(6305%) hue-rotate(300deg) brightness(83%) contrast(78%); }
