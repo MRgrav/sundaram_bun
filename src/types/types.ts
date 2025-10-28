@@ -40,3 +40,7 @@ export interface ProjectDropdownMenuProps {
     label: string; 
     sections: ProjectSection[]; 
 }
+
+export interface AdiHomeProps {
+    project?: string;
+}

@@ -369,6 +369,74 @@ export const SkyLinkHeights = () => {
         keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes"
       >
 
+  <section class="w-full min-h-[65vh] flex items-center px-6 py-10 bg-linear-to-bl from-blue-800/80 to-sky-400/70">
+      <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        {/* Left: minimal text */}
+        <div class="md:col-span-6 text-blue-950 md:mb-20">
+          <p class="text-lg text-slate-50 mb-2">Modern Living in Jorhat</p>
+
+          <h1 class="text-4xl font-extrabold mb-5">Sky Link Heights</h1>
+
+          {/* <p class="text-md text-slate-600 mb-4">Comfort, convenience, community.</p> */}
+          {/* <div class="flex items-center gap-2 text-slate-700 my-6">
+            <svg class="w-5 h-5 text-rose-500 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
+            </svg>
+            <span>Atilagoan, Jorhat, Assam</span>
+          </div> */}
+
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 bg-slate-50/60 border border-slate-100 rounded-full px-3 py-1 text-sm">
+              <svg class="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" />
+              </svg>
+              <span>Wi‑Fi</span>
+            </div>
+
+            <div class="flex items-center gap-2 bg-slate-50/60 border border-slate-100 rounded-full px-3 py-1 text-sm">
+              <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M12 2l3 6 6 .5-4.5 4 1 6L12 17l-5.5 2.5 1-6L3 8.5 9 8 12 2z" />
+              </svg>
+              <span>Amenities</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right: modern rounded card */}
+        <div class="md:col-span-6 flex justify-center md:justify-end">
+          <div
+            class="w-full md:max-w-md relative"
+            style={{
+              borderRadius: "20px 40px 20px 40px / 30px 20px 30px 20px",
+              overflow: "hidden",
+              boxShadow: "0 20px 40px rgba(2,6,23,0.25)",
+            }}
+          >
+            <img
+              src="/images/sky_link_heights/sdimg_sm.png"
+              alt="Sky Link Heights"
+              class="w-full h-100 object-cover block"
+            />
+
+            <div class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-2 text-sm">
+              {/* <svg class="w-4 h-4 text-rose-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M12 2C7.589 2 4 5.589 4 10c0 6 8 12 8 12s8-6 8-12c0-4.411-3.589-8-8-8z" />
+              </svg> */}
+              <span class="font-medium text-slate-900">Sky Link Heights</span>
+            </div>
+          </div>
+        </div>
+        <div class={"flex md:col-span-12"}>
+          <div class="flex items-center gap-2 text-slate-800 md:-mt-20">
+            <svg class="w-5 h-5 text-rose-500 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+              <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
+            </svg>
+            <span>Atilagoan, Jorhat, Assam</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
         <section class="bg-sky-600 py-16 px-4">
             <h2 class="text-3xl font-bold text-white text-center kanit-semibold">Welcome to Sky Link Heights</h2>
             <div class="container mx-auto grid md:grid-cols-2 gap-6 my-8">

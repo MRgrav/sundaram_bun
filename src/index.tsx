@@ -13,6 +13,8 @@ import { DivineGreen } from './routes/projects/DivineGreen';
 import { Login } from './routes/admin/login';
 import { Registration } from './routes/admin/registration';
 import { Dashboard } from './routes/admin/dashboard';
+import { AdiHome } from './routes/admin/home';
+import { AdiProject } from './routes/admin/projects';
 // import authApp from './routes/admin/authApp';
 // import { compress } from 'hono-compress';
 
@@ -42,6 +44,11 @@ app.get("/contact", (c) => c.html(<Contact />));
 app.get("/login", (c) => c.html(<Login />)); // Mounts /login, /register, /logout
 app.get("/registration", (c) => c.html(<Registration />));
 app.get("/adi/dashboard", (c) => c.html(<Dashboard />))
+app.get("/adi/home", (c) => c.html(<AdiHome />))
+app.get('/adi', (c) => {
+  
+  return c.html(<AdiProject project={c.req.query('project') || 'home'} />)
+})
 
 // --- 404
 app.notFound((c) => c.html(<h1 class="text-center text-4xl mt-20">404 Not Found</h1>));
