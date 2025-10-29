@@ -1,6 +1,6 @@
 import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
-import { AuthUser } from '../lib/pocketbase'; // Import the user type
+import { AuthUser } from '../../lib/pocketbase'; // Import the user type
 
 export const AuthLayout: FC<{ title: string, children?: any }> = ({ title, children }) => {
     return (

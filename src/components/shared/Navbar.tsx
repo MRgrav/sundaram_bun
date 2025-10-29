@@ -1,6 +1,6 @@
 import { html } from "hono/html";
 import type { FC } from "hono/jsx";
-import { ProjectSection } from "../types/types";
+import { ProjectSection } from "../../types/types";
 import { DropdownMenu } from "./DropDownMenu"; // Assuming this is your click-based component
 
 // Define your project data using the new structure (moved into component or file)

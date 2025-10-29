@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /adi
+
+User-agent: *
+Disallow: /admin/
+disallow: /*.pdf
+Allow: /
+
+sitemap: https://www.sundaramdevelopers.in/sitemap.xml

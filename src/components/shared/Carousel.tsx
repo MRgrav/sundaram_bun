@@ -1,11 +1,11 @@
 import { html } from "hono/html";
 import type { FC } from "hono/jsx";
-import { CarouselItem } from "../types/types";
+import { CarouselItem } from "../../types/types";
 
 
-export const Carousel: FC<{ items: CarouselItem[] }> = ({ items }) => (
+export const Carousel: FC<{ size?: string, items: CarouselItem[] }> = ({ size='h-[70vh] min-h-[500px]', items }) => (
   <section class="relative overflow-hidden">
-    <div id="carousel" class="relative h-[70vh] min-h-[500px] w-full">
+    <div id="carousel" class={`relative ${size} w-full`}>
       {items.map((slide, index) => (
         <div
           class={`carousel-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${

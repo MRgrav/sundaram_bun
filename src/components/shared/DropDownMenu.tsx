@@ -1,12 +1,12 @@
 import { html } from 'hono/html';
 import type { FC } from 'hono/jsx';
+import { ProjectDropdownMenuProps } from '../../types/types';
 // Assuming the types are correctly defined here:
 // interface ProjectRoute { title: string; route: string; }
 // interface ProjectSection { sectionTitle: string; items: ProjectRoute[]; }
 // interface ProjectDropdownMenuProps { label: string; sections: ProjectSection[]; }
 // If you cannot import types, you can define them inline or assume global availability
 // For this example, I'll assume they are available via the provided import.
-import { ProjectDropdownMenuProps } from '../types/types'; 
 
 
 export const DropdownMenu: FC<ProjectDropdownMenuProps> = ({ label, sections }) => {

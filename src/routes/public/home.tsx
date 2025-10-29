@@ -1,11 +1,11 @@
-import { Carousel } from "../components/Carousel";
-import { Layout } from "../components/Layout";
+import { Carousel } from "../../components/shared/Carousel";
+import { Layout } from "../../components/layouts/Layout";
 
 import PocketBase from "pocketbase";
-import { CarouselItem, ProjectItem } from "../types/types";
-import { ImageCard } from "../components/ImageCard";
-import { boardOfDirectors, homeCountDown, keyFeatures, primeLocationbenefits } from "../data/home";
-import { CountdownCard } from "../components/CountDownCard";
+import { CarouselItem, ProjectItem } from "../../types/types";
+import { ImageCard } from "../../components/ImageCard";
+import { boardOfDirectors, homeCountDown, keyFeatures, primeLocationbenefits } from "../../data/home";
+import { CountdownCard } from "../../components/shared/CountDownCard";
 
 const pb = new PocketBase(process.env.POCKETBASE_URL);
 

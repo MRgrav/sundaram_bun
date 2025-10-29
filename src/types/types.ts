@@ -44,3 +44,16 @@ export interface ProjectDropdownMenuProps {
 export interface AdiHomeProps {
     project?: string;
 }
+
+
+export interface MessageQuery {
+    id: string;
+    collectionId: string;
+    collectionName: string;
+    name: string;
+    phone: string;
+    email: string;
+    message_query: string;
+    created: string;
+    updated: string;
+}

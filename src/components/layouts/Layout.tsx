@@ -1,7 +1,7 @@
-import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
-import { SplashScreen } from "./SplashScreen";
-import { TopBar } from "./TopBar";
+import { Footer } from "../shared/Footer";
+import { Navbar } from "../shared/Navbar";
+import { SplashScreen } from "../shared/SplashScreen";
+import { TopBar } from "../shared/TopBar";
 
 export const Layout = ({
     title,

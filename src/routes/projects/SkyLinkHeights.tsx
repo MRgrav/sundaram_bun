@@ -1,5 +1,5 @@
 import { ImageGallery } from "../../components/ImageGallery";
-import { Layout } from "../../components/Layout";
+import { Layout } from "../../components/layouts/Layout";
 
 const locationBenefits = [
     {
@@ -407,7 +407,7 @@ export const SkyLinkHeights = () => {
           <div
             class="w-full md:max-w-md relative"
             style={{
-              borderRadius: "20px 40px 20px 40px / 30px 20px 30px 20px",
+              borderRadius: "72% 28% 38% 62% / 83% 30% 70% 17% ",
               overflow: "hidden",
               boxShadow: "0 20px 40px rgba(2,6,23,0.25)",
             }}
@@ -418,7 +418,7 @@ export const SkyLinkHeights = () => {
               class="w-full h-100 object-cover block"
             />
 
-            <div class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-2 text-sm">
+            <div class="absolute left-8 bottom-18 bg-white/90 backdrop-blur-sm shadow rounded-full px-3 py-1.5 flex items-center gap-2 text-sm">
               {/* <svg class="w-4 h-4 text-rose-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M12 2C7.589 2 4 5.589 4 10c0 6 8 12 8 12s8-6 8-12c0-4.411-3.589-8-8-8z" />
               </svg> */}
@@ -426,7 +426,7 @@ export const SkyLinkHeights = () => {
             </div>
           </div>
         </div>
-        <div class={"flex md:col-span-12"}>
+        <div class={"flex md:col-span-12 font-semibold"}>
           <div class="flex items-center gap-2 text-slate-800 md:-mt-20">
             <svg class="w-5 h-5 text-rose-500 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
               <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />

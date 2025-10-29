@@ -1,5 +1,5 @@
-import { AdminLayout } from "../../components/AdminLayout";
-import { Home } from "../home";
+import { AdminLayout } from "../../components/layouts/AdminLayout";
+import { Home } from "../public/home";
 import { DivineGreen } from "../projects/DivineGreen";
 import { HoroGauriComplex } from "../projects/HoroGauriComplex";
 import { PBArcade } from "../projects/PBArcade";

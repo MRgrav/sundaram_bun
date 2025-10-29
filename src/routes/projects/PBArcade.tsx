@@ -1,5 +1,5 @@
 import { ImageGallery } from "../../components/ImageGallery";
-import { Layout } from "../../components/Layout";
+import { Layout } from "../../components/layouts/Layout";
 
 const locationBenefits = [
     {

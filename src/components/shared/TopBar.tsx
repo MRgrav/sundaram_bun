@@ -1,4 +1,4 @@
-import { Icon } from "./Icon"
+import { Icon } from "../Icon"
 
 export const TopBar = () => (
     <div class={"w-full bg-zinc-900 p-3 text-yellow-200"}>

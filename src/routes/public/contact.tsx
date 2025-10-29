@@ -1,6 +1,6 @@
 import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
-import { Layout } from '../components/Layout';
+import { Layout } from '../../components/layouts/Layout';
 
 export const Contact: FC = () => {
   return (

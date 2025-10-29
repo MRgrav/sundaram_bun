@@ -1,5 +1,5 @@
-import { Layout } from "../components/Layout";
-import { Navbar } from "../components/Navbar";
+import { Layout } from "../../components/layouts/Layout";
+import { Navbar } from "../../components/shared/Navbar";
 
 export const About = () => (
   <Layout title="About Us">
