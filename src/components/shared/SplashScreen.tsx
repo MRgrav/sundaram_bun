@@ -34,7 +34,7 @@ export const SplashScreen: FC<SplashScreenProps> = ({
         
         .wave-center {
             /* Apply the animation */
-            animation: pulse-wave 2s infinite cubic-bezier(0.2, 0.6, 0.3, 1.2);
+            animation: pulse-wave 1s infinite cubic-bezier(0.2, 0.6, 0.3, 1.2);
         }
         
         /* Animation for the bounce dots */

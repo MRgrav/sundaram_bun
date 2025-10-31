@@ -37,8 +37,8 @@ export interface PageRecord {
     map_description?: string;
     
     // JSON fields (stored as string/JSON in PB, but typed as objects here)
-    location_benefits_section?: LocationBenefit[]; 
-    feature_amenities_section?: { title: string, features: FeatureAmenity[] };
+    location_benefits_section: LocationBenefit[]; 
+    feature_amenities_section: { title: string, features: FeatureAmenity[] };
     premium_benefits_section?: { title: string, benefits: PremiumBenefit[] };
 
     // Relation fields (Expanded data if requested via expand query)
@@ -46,3 +46,4 @@ export interface PageRecord {
     gallery?: string[];
     
 }
+

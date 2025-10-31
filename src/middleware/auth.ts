@@ -1,57 +1,21 @@
-import { createMiddleware } from 'hono/factory';
 import { getCookie } from 'hono/cookie';
-import { pb, AuthUser } from '../lib/pocketbase'; // Import pb and AuthUser type
+import { Context, Next } from "hono";
+import { pb } from "../lib/pocketbase";
 
-// Define the variable structure we'll use in the Hono context
-declare module 'hono' {
-    interface ContextVariableMap {
-        user: AuthUser | null;
-    }
+const AUTH_COOKIE = "pb_auth";
+
+export async function authRequired(c: Context, next: Next) {
+  const token = getCookie(c, AUTH_COOKIE);
+  console.log(token);
+  if (!token) return c.redirect("/^^/login", 302);
+
+  try {
+    pb.authStore.save(token, null);
+    await pb.collection("users").authRefresh(); // validates token and populates model
+    c.set("pb_user", pb.authStore.model);
+    await next();
+  } catch (err) {
+    pb.authStore.clear();
+    return c.redirect("/login", 302);
+  }
 }
-
-/**
- * Middleware to check authentication state from PocketBase cookie.
- * Reads the 'pb_auth' cookie and validates the session.
-*/
-
-export const authMiddleware = createMiddleware(async (c, next) => {
-    const authCookie = getCookie(c, 'pb_auth');
-    pb.authStore.loadFromCookie(`pb_auth=${authCookie || ''}`);
-
-    let user: AuthUser | null = null;
-    
-    if (pb.authStore.isValid) {
-        try {
-            // ✅ FIX 1: Explicitly pass your custom type (AuthUser) as the generic argument 
-            // to the authRefresh method. This tells TypeScript what kind of record to expect.
-            const authData = await pb.collection('users').authRefresh<AuthUser>();
-            
-            // ✅ FIX 2: Safely assign the model from authStore or the returned authData.
-            // Since we specified the generic type in authRefresh, TypeScript now trusts the type.
-            user = authData.record;
-            
-        } catch (_) {
-            // Token expired or invalid, clear the store
-            pb.authStore.clear();
-        }
-    }
-
-    // Attach the user object to the Hono context variables
-    c.set('user', user);
-
-    await next();
-});
-
-/**
- * Route protector middleware. Redirects unauthenticated users.
- */
-export const protectRoute = createMiddleware(async (c, next) => {
-    const user = c.get('user');
-
-    if (!user) {
-        // Redirect unauthenticated users to the login page
-        return c.redirect('/login');
-    }
-
-    await next();
-});

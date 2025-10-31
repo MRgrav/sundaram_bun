@@ -3,6 +3,7 @@ import { pb } from '../lib/pocketbase';
 import { html } from 'hono/html';
 import { PageRecord } from '../types/cms';
 import { PageSettings } from './admin';
+import { authRequired } from '../middleware/auth';
 
 const PAGE_COLLECTION = 'pages';
 const MEDIA_COLLECTION = 'media';
@@ -168,7 +169,7 @@ const parseLocationBenefits = (formData: any): LocationBenefit[] => {
 
 // --- CONTACT FORM SUBMISSION ---
 // POST /api/pocketbase/submit-contact
-api.post('/pocketbase/submit-contact', async (c) => {
+api.post('/pocketbase/submit-contact', authRequired, async (c) => {
     try {
         // 1. Parse the incoming form data
         const formData = await c.req.parseBody();
@@ -216,7 +217,7 @@ api.post('/pocketbase/submit-contact', async (c) => {
 
 // --- 1. META SECTION UPDATE ---
 // Handles: title, meta_title, meta_description
-api.post('/cms/meta-section/:pageId', async (c) => {
+api.post('/cms/meta-section/:pageId', authRequired, async (c) => {
     const pageId = c.req.param('pageId');
     const SECTION_KEY = 'meta-section';
     
@@ -246,7 +247,7 @@ api.post('/cms/meta-section/:pageId', async (c) => {
 
 // --- 2. HERO SECTION UPDATE ---
 // Handles: hero_heading, hero_subheading, hero_address, hero_highlight_one, hero_highlight_two, hero_image (relation ID)
-api.post('/cms/hero-section/:pageId', async (c) => {
+api.post('/cms/hero-section/:pageId', authRequired, async (c) => {
     const pageId = c.req.param('pageId');
     const SECTION_KEY = 'hero-section';
 
@@ -280,7 +281,7 @@ api.post('/cms/hero-section/:pageId', async (c) => {
 
 // --- 3. MAP SECTION UPDATE ---
 // Handles: map_url, map_description
-api.post('/cms/map-section/:pageId', async (c) => {
+api.post('/cms/map-section/:pageId', authRequired, async (c) => {
     const pageId = c.req.param('pageId');
     const SECTION_KEY = 'map-section';
 
@@ -364,7 +365,7 @@ api.post('/cms/amenities-section/:pageId', async (c) => {
 //         return sendTrigger(c, 'cms-save-error', { pageId, section: SECTION_KEY, error: 'JSON array save failed' }, 500);
 //     }
 // });
-api.post('/cms/location-benefits-section/:pageId', async (c) => {
+api.post('/cms/location-benefits-section/:pageId', authRequired, async (c) => {
     const pageId = c.req.param('pageId');
     const SECTION_KEY = 'location-benefits-section';
     const FIELD_NAME = 'location_benefits_section';
@@ -417,7 +418,7 @@ api.post('/cms/location-benefits-section/:pageId', async (c) => {
 
 // --- 6. IMAGE GALLERY (RELATION ARRAY) UPDATE ---
 // Handles: gallery (Multiple relation IDs)
-api.post('/cms/gallery-section/:pageId', async (c) => {
+api.post('/cms/gallery-section/:pageId', authRequired, async (c) => {
     const pageId = c.req.param('pageId');
     const SECTION_KEY = 'gallery-section';
 
@@ -445,7 +446,7 @@ api.post('/cms/gallery-section/:pageId', async (c) => {
 
 // --- 7. MEDIA LIBRARY GET (For Image Selector Modal) ---
 // Returns a JSON list of available media assets.
-api.get('/cms/load-images', async (c) => {
+api.get('/cms/load-images', authRequired, async (c) => {
     try {
         const result = await pb.collection(MEDIA_COLLECTION).getList(1, 50, {
             fields: 'id, file, alt' // Only select necessary fields
@@ -467,7 +468,7 @@ api.get('/cms/load-images', async (c) => {
 });
 
 
-api.get('/page/:pageId', async (c): Promise<Response> => {
+api.get('/page/:pageId', authRequired, async (c): Promise<Response> => {
     const pageId = c.req.param('pageId');
 
   // --- POCKETBASE FETCH SIMULATION ---

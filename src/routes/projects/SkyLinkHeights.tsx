@@ -1,5 +1,7 @@
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
+import { pb } from "../../lib/pocketbase";
+import { FeatureAmenity, LocationBenefit, PageRecord } from "../../types/cms";
 
 const locationBenefits = [
     {
@@ -359,13 +361,22 @@ const sampleImages = [
   ];
   
 
-export const SkyLinkHeights = () => {
+export const SkyLinkHeights = async () => {
+  const record = await pb.collection('pages').getOne('fsp5ofj8w78q3fr', {
+    expand: 'gallery,hero_image',
+  });
+
+  const recordData = record as unknown as PageRecord;
+
+  const location_benefits = recordData?.location_benefits_section as unknown as LocationBenefit[] || locationBenefits;
+  const features_amenities = recordData?.feature_amenities_section?.features as unknown as FeatureAmenity[] || featuresAmenities;
+
     return (
       <Layout 
-        title="Sky Link Heights | Sundaram Developers | Smart Homes in Jorhat & Guwahati"
-        description="Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."
+        title={ recordData?.meta_title || "Sky Link Heights | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
+        description={ recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects." }
         image="/images/sky-link-heights-1.avif"
-        url="https://sundaramdevelopers.in/sky-link-heights"
+        url="https://www.sundaramdevelopers.in/sky-link-heights"
         keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes"
       >
 

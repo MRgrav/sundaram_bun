@@ -1,5 +1,8 @@
+import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
+import { pb } from "../../lib/pocketbase";
+import { FeatureAmenity, LocationBenefit, PageRecord } from "../../types/cms";
 
 const locationBenefits = [
     {
@@ -283,11 +286,20 @@ const gallery = [
     },
 ];
 
-export const PBArcade = () => {
+export const PBArcade = async () => {
+    const record = await pb.collection('pages').getOne('gt59b3qczvftjf7', {
+        expand: 'gallery,hero_image',
+    });
+
+    const recordData = record as unknown as PageRecord;
+
+    const location_benefits = recordData?.location_benefits_section as unknown as LocationBenefit[] || locationBenefits;
+    const features_amenities = recordData?.feature_amenities_section?.features as unknown as FeatureAmenity[] || featuresAmenities;
+
     return (
       <Layout 
-        title="P.B Arcade | Sundaram Developers | Smart Homes in Jorhat & Guwahati"
-        description="Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."
+        title={recordData?.meta_title || "P.B Arcade | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
+        description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
         image="/images/sky-link-heights-1.avif"
         url="https://sundaramdevelopers.in/sky-link-heights"
         keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes"
@@ -300,16 +312,15 @@ export const PBArcade = () => {
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3794.4305352067395!2d94.209972!3d26.760419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3746c3fe625e6147%3A0x5fbdd8d4904833dd!2sP%20B%20Arcade!5e1!3m2!1sen!2sin!4v1760430939156!5m2!1sen!2sin" class="w-full h-full" style="border:0;" allowfullscreen={true} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
-                <p>
-                    <span class="font-semibold italic pe-1">'P.B. ARCADE' </span> is a modern commercial project nestled in the bustling heart of Jorhat,
-                    near <span class="font-semibold italic">Deepali Medical, AT Road</span>. Designed for modern businesses and retail visionaries, this
-                    structured commercial enclave brings together functionality, visibility, and strategic
-                    connectivity. With thoughtfully planned shops across multiple floors and essential modern
-                    infrastructure, it offers a dynamic business environment complete with power backup, secure
-                    access, and shared amenities. Positioned minutes from key transit hubs and healthcare centers,
-                    P.B. Arcade is more than just a commercial address — it’s a growth destination built for the
-                    entrepreneurs of tomorrow.
-                </p>
+              <div class="flex flex-col justify-center gap-6 leading-8 text-white text-lg">
+                        {recordData.map_description ? (
+                            <RichTextDisplay
+                                htmlContent={recordData.map_description}
+                            />
+                        ) : (
+                            <p>{recordData.meta_description}</p>
+                        )}
+                    </div>
             </div>
             </div>
         </section>
@@ -317,13 +328,13 @@ export const PBArcade = () => {
           <section class=" px-4 py-20 text-center bg-zinc-100">
               <h3 class={"mb-8 text-4xl font-semibold"}>Prime Location Benefits</h3>
               <div class={"container mx-auto grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4"}>
-              {locationBenefits
+              {location_benefits
                   .map((item, index) => (
                   <div class="p-4 flex flex-col items-center justify-center gap-2 rounded-md hover:shadow-lg" key={index}>
-                      <img src={item.icon} class={"h-12 w-12 mb-2 icon-orange-400"} />
+                      <img src={item.iconPath} class={"h-12 w-12 mb-2 icon-orange-400"} />
                       {/* {item.icon} */}
-                      <label class={"font-semibold text-2xl text-amber-600"}>{item.title}</label>
-                      <p class={"text-zinc-700"}>{item.desc}</p>
+                      <label class={"font-semibold text-2xl text-amber-600"}>{item.distance}</label>
+                      <p class={"text-zinc-700"}>{item.label}</p>
                   </div>
                   ))
               }

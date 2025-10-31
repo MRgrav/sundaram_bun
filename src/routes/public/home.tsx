@@ -20,48 +20,25 @@ export const Home = async () => {
     sort: "-created",
   });
 
-  const mockSlidesData = [
-    {
-        title: "Objavte nové obzory",
-        description: "Cestovateľské zážitky, ktoré vám zmenia život",
-        buttonText: "Rezervovať",
-        buttonUrl: "#",
-        image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
-    },
-    {
-        title: "Prírodné krásy",
-        description: "Nádherné výhľady a čistá príroda",
-        buttonText: "Pozrieť ponuku",
-        buttonUrl: "#",
-        image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
-    },
-    {
-        title: "Mestské dobrodružstvo",
-        description: "Moderné mestá plné života a kultúry",
-        buttonText: "Viac informácií",
-        buttonUrl: "#",
-        image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80"
-    }
-];
 
-const skyLinkHighlights = [
-  'Solar Panels',
-  'Smart Lighting System',
-  'WiFi-enabled Security Cameras',
-  'Gym & Fitness Studio',
-  'Multi-purpose Hall',
-  'Motion Sensors',
-]
+  const skyLinkHighlights = [
+    'Solar Panels',
+    'Smart Lighting System',
+    'WiFi-enabled Security Cameras',
+    'Gym & Fitness Studio',
+    'Multi-purpose Hall',
+    'Motion Sensors',
+  ]
 
   return (
-    <Layout 
+    <Layout
       title="Sundaram Developers | Smart Homes in Jorhat & Guwahati"
       description="Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."
       image="/images/sky-link-heights-1.avif"
-      url="https://sundaramdevelopers.in/"
+      url="https://www.sundaramdevelopers.in/"
       keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes"
     >
-      
+
       {/* <HeroSlider slidesData={mockSlidesData}/> */}
       <Carousel items={hero} />
 
@@ -69,25 +46,25 @@ const skyLinkHighlights = [
       <section class="container mx-auto px-4 py-20 text-center">
         <h3 class={"mb-4 text-4xl font-semibold"}>Our Signature Project</h3>
         <div class={"grid md:grid-cols-3 gap-4"}>
-        {projects
+          {projects
             .filter(item => item.is_completed != true)
             .map((item, index) => (
               <ImageCard key={item.id || index} item={item} />
             ))
-        }
+          }
         </div>
       </section>
 
-        {/* completed projects */}
+      {/* completed projects */}
       <section class="container mx-auto px-4 py-20 text-center">
         <h3 class={"mb-4 text-4xl font-semibold"}>Completed Project</h3>
         <div class={"grid md:grid-cols-2 gap-4"}>
-        {projects
+          {projects
             .filter(item => item.is_completed == true)
             .map((item, index) => (
               <ImageCard key={item.id || index} item={item} />
             ))
-        }
+          }
         </div>
       </section>
 
@@ -95,7 +72,7 @@ const skyLinkHighlights = [
       <section class="px-4 py-20 text-center bg-white">
         <h3 class={"container mx-auto mb-8 text-4xl font-semibold"}>Prime Location Benefits</h3>
         <div class={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"}>
-        {primeLocationbenefits
+          {primeLocationbenefits
             .map((item, index) => (
               <div class="p-4 flex flex-col items-center justify-center gap-2 rounded-md hover:shadow-lg" key={index}>
                 <img src={item.icon} class={"h-12 w-12 mb-2 icon-blue-400"} />
@@ -104,7 +81,7 @@ const skyLinkHighlights = [
                 <p class={"text-zinc-700"}>{item.desc}</p>
               </div>
             ))
-        }
+          }
         </div>
       </section>
 
@@ -112,7 +89,7 @@ const skyLinkHighlights = [
       <section class="container mx-auto px-4 py-20 text-center">
         <h3 class={"mb-8 text-4xl font-semibold"}>Key Features</h3>
         <div class={"grid sm:grid-cols-2 md:grid-cols-4 gap-4"}>
-        {keyFeatures
+          {keyFeatures
             .map((item, index) => (
               <div class="p-4 flex flex-col items-center justify-center gap-2 rounded-md hover:shadow-lg">
                 <img src={item.icon} class={"h-16 w-16 mb-2 icon-blue-500"} />
@@ -121,7 +98,7 @@ const skyLinkHighlights = [
                 <p class={"text-zinc-700"}>{item.desc}</p>
               </div>
             ))
-        }
+          }
         </div>
       </section>
 
@@ -150,8 +127,8 @@ const skyLinkHighlights = [
       <section class=" px-4 py-20 text-center">
         <h3 class={"mb-8 text-4xl font-semibold"}>About Us</h3>
         <div class={"container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12"}>
-        <div style="position:relative;width:100%;overflow:hidden; display:flex; justify-content: center;">
-          <video
+          <div style="position:relative;width:100%;overflow:hidden; display:flex; justify-content: center;">
+            {/* <video
             src="/video/clip.webm"            
             controls={false}
             autoplay
@@ -160,8 +137,35 @@ const skyLinkHighlights = [
             playsinline
             class="aspect-11/16 md:aspect-square"
             style="width:auto;height:100%;object-fit:cover;display:block;border:0; margin: auto; max-height: 600px;"
-          ></video>
-        </div>
+          ></video> */}
+            {/* function convertToPreviewLink(url) {
+    if (url.includes('drive.google.com')) {
+      const base = 'https://drive.google.com/file/d/';
+      let key = url.substring(url.indexOf(base) + base.length);
+      key = key.split('/')[0];
+      return base + key + '/preview';
+    }
+    return url; // Return original URL if it's not a Google Drive URL
+} */}
+            <div
+              //  class={` aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl`}
+              class="aspect-11/16 md:aspect-square"
+              style="width:auto;height:100%;object-fit:cover;display:block;border:0; margin: auto; max-height: 600px;"
+            >
+              <iframe
+                src={'https://drive.google.com/file/d/1eseLjQHsXUPOOgg2ED9cPij3_o8OJ0-0/preview'}
+                // src="https://drive.google.com/file/d/1eseLjQHsXUPOOgg2ED9cPij3_o8OJ0-0/view?usp=sharing"
+                class="w-full h-full border-0"
+                allow="mute; autoplay; encrypted-media"
+                allowFullScreen
+                controls={false}
+                autoplay={true}
+                muted={true}
+                loop={true}
+                sandbox="allow-scripts allow-same-origin "
+              />
+            </div>
+          </div>
           <div class={"text-left lg:col-span-2"}>
             <h4 class={"text-2xl font-semibold my-4"}>Welcome to Sundaram Developers</h4>
             <p>Sundaram Developers is a steadily-growing real estate company engaged in construction of several real estate projects across the Upper Assam to meet the growing demand of an emergent India’s Look East Policy. </p>
@@ -198,5 +202,5 @@ const skyLinkHighlights = [
         </div>
       </section>
     </Layout>
-  );  
+  );
 }
