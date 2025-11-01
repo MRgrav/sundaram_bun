@@ -44,6 +44,7 @@ export const Home = async () => {
 
       {/* Signature Projects */}
       <section class="container mx-auto px-4 py-20 text-center">
+        <h1 class={"hidden"}>Sundaram Developers</h1>
         <h3 class={"mb-4 text-4xl font-semibold"}>Our Signature Project</h3>
         <div class={"grid md:grid-cols-3 gap-4"}>
           {projects
@@ -128,7 +129,7 @@ export const Home = async () => {
         <h3 class={"mb-8 text-4xl font-semibold"}>About Us</h3>
         <div class={"container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12"}>
           <div style="position:relative;width:100%;overflow:hidden; display:flex; justify-content: center;">
-            {/* <video
+            <video
             src="/video/clip.webm"            
             controls={false}
             autoplay
@@ -137,7 +138,7 @@ export const Home = async () => {
             playsinline
             class="aspect-11/16 md:aspect-square"
             style="width:auto;height:100%;object-fit:cover;display:block;border:0; margin: auto; max-height: 600px;"
-          ></video> */}
+          ></video>
             {/* function convertToPreviewLink(url) {
     if (url.includes('drive.google.com')) {
       const base = 'https://drive.google.com/file/d/';
@@ -147,7 +148,7 @@ export const Home = async () => {
     }
     return url; // Return original URL if it's not a Google Drive URL
 } */}
-            <div
+            {/* <div
               //  class={` aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl`}
               class="aspect-11/16 md:aspect-square"
               style="width:auto;height:100%;object-fit:cover;display:block;border:0; margin: auto; max-height: 600px;"
@@ -164,7 +165,7 @@ export const Home = async () => {
                 loop={true}
                 sandbox="allow-scripts allow-same-origin "
               />
-            </div>
+            </div> */}
           </div>
           <div class={"text-left lg:col-span-2"}>
             <h4 class={"text-2xl font-semibold my-4"}>Welcome to Sundaram Developers</h4>

@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, LocationBenefit, PageRecord } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
     {
@@ -40,66 +40,66 @@ const featuresAmenities = [
     {
         //   icon: MdGroupWork,
         title: "Community Features",
-        list: [
+        features: [
             {
-                icon: '/icons/poker-clubs-fill.svg',
-                feature: "Clubhouse & Lounge",
+                iconPath: '/icons/poker-clubs-fill.svg',
+                label: "Clubhouse & Lounge",
             },
             {
-                icon: '/icons/mickey-fill.svg',
-                feature: "Children's Play Area",
+                iconPath: '/icons/mickey-fill.svg',
+                label: "Children's Play Area",
             },
             {
-                icon: '/icons/heart-pulse-fill.svg',
-                feature: "Gym & Fitness Studio",
+                iconPath: '/icons/heart-pulse-fill.svg',
+                label: "Gym & Fitness Studio",
             },
             {
-                icon: '/icons/film-fill.svg',
-                feature: "Multi-purpose Hall",
+                iconPath: '/icons/film-fill.svg',
+                label: "Multi-purpose Hall",
             }
         ]
     },
     {
         //   icon: MdGroupWork,
         title: "Eco Features",
-        list: [
+        features: [
             {
-                icon: '/icons/contrast-drop-2-line.svg',
-                feature: "Rain Water Harvesting",
+                iconPath: '/icons/contrast-drop-2-line.svg',
+                label: "Rain Water Harvesting",
             },
             {
-                icon: '/icons/sun-fill.svg',
-                feature: "Solar Panels",
+                iconPath: '/icons/sun-fill.svg',
+                label: "Solar Panels",
             },
             {
-                icon: '/icons/lightbulb-flash-fill.svg',
-                feature: "Energy-efficient Lighting",
+                iconPath: '/icons/lightbulb-flash-fill.svg',
+                label: "Energy-efficient Lighting",
             },
             {
-                icon: '/icons/recycle-fill.svg',
-                feature: "Recycled Materials",
+                iconPath: '/icons/recycle-fill.svg',
+                label: "Recycled Materials",
             }
         ]
     },
     {
         //   icon: MdWifi,
         title: "Smart Features",
-        list: [
+        features: [
             {
-                icon: '/icons/lightbulb-ai-fill.svg',
-                feature: "Smart Lighting System",
+                iconPath: '/icons/lightbulb-ai-fill.svg',
+                label: "Smart Lighting System",
             },
             {
-                icon: '/icons/door-lock-fill.svg',
-                feature: "App-based Door Unlock",
+                iconPath: '/icons/door-lock-fill.svg',
+                label: "App-based Door Unlock",
             },
             {
-                icon: '/icons/radar-fill.svg',
-                feature: "Motion Sensors",
+                iconPath: '/icons/radar-fill.svg',
+                label: "Motion Sensors",
             },
             {
-                icon: '/icons/webcam-fill.svg',
-                feature: "WiFi-enabled Security Cameras",
+                iconPath: '/icons/webcam-fill.svg',
+                label: "WiFi-enabled Security Cameras",
             }
         ]
     }
@@ -107,103 +107,103 @@ const featuresAmenities = [
 const premiumSpecifications = [
     {
         title: "Flooring",
-        list: [
+        benefits: [
             {
                 label: "Vitrified tiles",
-                desc: " in drawing, dining, and bedrooms"
+                description: " in drawing, dining, and bedrooms"
             },
             {
                 label: "Marble/anti-skid tiles",
-                desc: " in common areas"
+                description: " in common areas"
             },
             {
                 label: "PCC casting",
-                desc: " for parking zones"
+                description: " for parking zones"
             },
         ]
     },
     {
         title: "Kitchen",
-        list: [
+        benefits: [
             {
                 label: "Marble countertop",
-                desc: " for a premium, durable finish"
+                description: " for a premium, durable finish"
             },
             {
                 label: "Ceramic tile cladding",
-                desc: " up to 2 feet above the counter for easy maintenance"
+                description: " up to 2 feet above the counter for easy maintenance"
             },
             {
                 label: "Stainless steel (S.S.) sink",
-                desc: " for longevity and hygiene"
+                description: " for longevity and hygiene"
             },
         ]
     },
     {
         title: "Paint",
-        list: [
+        benefits: [
             {
                 label: "Interior walls",
-                desc: " : Smooth plaster with putty and primer finish"
+                description: " : Smooth plaster with putty and primer finish"
             },
             {
                 label: "Exterior walls",
-                desc: " : double coat plaster with weatherproof textured paint."
+                description: " : double coat plaster with weatherproof textured paint."
             },
             {
                 label: "Aesthetic facade ",
-                desc: ": as per architect’s design for a stylish look."
+                description: ": as per architect’s design for a stylish look."
             },
         ]
     },
     {
         title: "Door and Windows",
-        list: [
+        benefits: [
             {
                 label: "Main &amp; internal doors",
-                desc: " : Waterproof flush doors with quality accessories"
+                description: " : Waterproof flush doors with quality accessories"
             },
             {
                 label: "Windows",
-                desc: " : Anodized aluminum sections fitted with 5 mm quality glass"
+                description: " : Anodized aluminum sections fitted with 5 mm quality glass"
             },
             {
                 label: "",
-                desc: "Designed for durability, insulation, and low maintenance"
+                description: "Designed for durability, insulation, and low maintenance"
             },
         ]
     },
     {
         title: "Electrical",
-        list: [
+        benefits: [
             {
                 label: "",
-                desc: "AC and geyser provision in master bedroom and bathroom"
+                description: "AC and geyser provision in master bedroom and bathroom"
             },
             {
                 label: "",
-                desc: "Separate MCB panel for each unit"
+                description: "Separate MCB panel for each unit"
             },
             {
                 label: "",
-                desc: "Ample lighting in rooms, common areas, and parking"
+                description: "Ample lighting in rooms, common areas, and parking"
             },
         ]
     },
     {
         title: "Bathroom",
-        list: [
+        benefits: [
             {
                 label: "Ceramic wall tiles",
-                desc: " up to door height and anti-skid floor tiles"
+                description: " up to door height and anti-skid floor tiles"
             },
             {
                 label: "Hindware/Jaquar",
-                desc: " or equivalent quality CP fittings"
+                description: " or equivalent quality CP fittings"
             },
             {
                 label: "",
-                desc: "Hot and cold water connections in all attached bathrooms"
+                description: "Hot and cold water connections in all attached bathrooms"
             },
         ]
     }
@@ -299,8 +299,9 @@ export const ShivashreeApartment = async () => {
     const recordData = record as unknown as PageRecord;
 
     const location_benefits = recordData?.location_benefits_section as unknown as LocationBenefit[] || locationBenefits;
-    const features_amenities = recordData?.feature_amenities_section?.features as unknown as FeatureAmenity[] || featuresAmenities;
-    console.log(location_benefits);
+    const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
+    const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
+    console.log(premium_specifications);
 
     return (
         <Layout
@@ -308,7 +309,7 @@ export const ShivashreeApartment = async () => {
             description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
             image="/images/sky-link-heights-1.avif"
             url="https://www.sundaramdevelopers.in/sky-link-heights"
-            keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes"
+            keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, shivashree, apartment in tezpur, apartment"
         >
 
             <section class="bg-indigo-600 py-16 px-4">
@@ -342,7 +343,7 @@ export const ShivashreeApartment = async () => {
                         .map((item, index) => (
                             <div class="p-4 flex flex-col items-center justify-center gap-2 rounded-md hover:shadow-lg" key={index}>
                                 <img src={item.iconPath} class={"h-12 w-12 mb-2 icon-blue-400"} />
-                               
+
                                 <label class={"font-semibold text-2xl text-blue-600"}>{item.distance}</label>
                                 <p class={"text-zinc-700"}>{item.label}</p>
                             </div>
@@ -355,15 +356,15 @@ export const ShivashreeApartment = async () => {
             <section class="px-4 py-20 bg-white">
                 <h3 class={"mb-8 text-4xl font-semibold text-center"}>Features & Amenities</h3>
                 <div class={"container mx-auto max-w-7xl w-[80%] grid md:grid-cols-3 gap-4"}>
-                    {featuresAmenities
+                    {features_amenities
                         .map((item, index) => (
                             <div class="p-4 rounded-md hover:shadow-lg" key={index}>
                                 <label class={"text-left text-2xl text-blue-600 mb-6"}>{item.title}</label>
-                                {item.list
+                                {item?.features
                                     .map((subitem, index2) => (
                                         <div class="p-2 flex items-center justify-start gap-4 " key={index2}>
-                                            <img src={subitem.icon} class={"h-6 w-6 icon-yellow-400"} />
-                                            <p class={"text-zinc-800 text-sm whitespace-nowrap"}>{subitem.feature}</p>
+                                            <img src={subitem.iconPath} class={"h-6 w-6 icon-yellow-400"} />
+                                            <p class={"text-zinc-800 text-sm whitespace-nowrap"}>{subitem.label}</p>
                                         </div>
                                     ))
                                 }
@@ -377,14 +378,17 @@ export const ShivashreeApartment = async () => {
             <section class="container mx-auto px-4 py-20 ">
                 <h3 class={"mb-8 text-4xl font-semibold text-center"}>Premium Benefits</h3>
                 <div class={"grid md:grid-cols-2 gap-6"}>
-                    {premiumSpecifications
+                    {premium_specifications
                         .map((item, index) => (
                             <div class="p-4 rounded-md " key={index}>
                                 <label class={"text-left font-medium text-4xl text-zinc-800 "}>{item.title}</label>
                                 <ul class={"list-disc list-inside mt-8"}>
-                                    {item.list
+                                    {item?.benefits
                                         .map((subitem, index2) => (
-                                            <li class={"text-zinc-800 mb-2"}><b class={"pe-2"}>{subitem.label}</b>{subitem.desc}</li>
+                                            <li class={" text-zinc-800 mb-2"} key={index2}>
+                                                {subitem?.label && (<strong>{subitem.label}</strong>)}
+                                                <span>{subitem.description}</span>
+                                            </li>
                                         ))
                                     }
                                 </ul>

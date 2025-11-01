@@ -47,16 +47,31 @@ export const Layout = ({
         {/* --- Resource Hints (Preload/Caching) --- */}
         <link rel="preload" as="style" href="/output.css" />
         <link rel="stylesheet" href="/output.css" />
-        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/logo.png" type="image/webp" />
+        <link rel="preload" as="video" href="/video/clip.webm" type="video/webm" />
+
+        {/* <!-- Schema.org --> */}
+        {/* <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "RealEstateListing",
+          "name": "Shivashree Apartment",
+          "description": "Completed sustainable 1-3BHK smart homes in Tezpur with solar panels, gym, and app-based security.",
+          "url": "https://sundaramdevelopers.in/shivashree",
+          "image": "https://sundaramdevelopers.in/images/shivashree/hero.jpg",
+          "address": { "@type": "PostalAddress", "addressLocality": "Tezpur", "addressRegion": "Assam", "addressCountry": "IN" },
+          "offers": { "@type": "Offer", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+        }
+        </script> */}
   
         {/* --- Favicon --- */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body class="bg-zinc-100 text-zinc-800 antialiased">
-          <SplashScreen 
-                    // imageUrl="https://your-domain.com/path/to/logo.png"
-                    // appName="My PocketBase App"
-                />
+          {/* <SplashScreen  */}
+                    {/* // imageUrl="https://your-domain.com/path/to/logo.png" */}
+                    {/* // appName="My PocketBase App" */}
+                {/* /> */}
         {/* Actual main application content goes here */}
         <div class="hidden-until-load">
           <TopBar />
