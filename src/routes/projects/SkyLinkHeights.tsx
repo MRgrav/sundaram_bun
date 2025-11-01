@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, ImageDetails, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
   {
@@ -279,87 +279,93 @@ const specifications = [
   },
 ];
 
-const gallery = [
+const staticGallery = [
   {
-    src: '/images/sky_link_heights/sdimg.jpg',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/sdimg.jpg',
+    alt: 'Sky Link Heights',
+    id: '1'
   },
   {
-    src: '/images/sky_link_heights/sky-link-heights-1-sm.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/sky-link-heights-1-sm.avif',
+    alt: 'Sky Link Heights',
+    id: '2'
   },
   {
-    src: '/images/sky_link_heights/sky-link-heights-3-sm.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/sky-link-heights-3-sm.avif',
+    alt: 'Sky Link Heights',
+    id: '3'
   },
   {
-    src: '/images/sky_link_heights/sky-link-heights-4.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/sky-link-heights-4.avif',
+    alt: 'Sky Link Heights',
+    id: '4'
   },
   {
-    src: '/images/sky_link_heights/sky-link-heights-2.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/sky-link-heights-2.avif',
+    alt: 'Sky Link Heights',
+    id: '5'
   },
   {
-    src: '/images/sky_link_heights/master-plan.avif',
-    alt: 'master plan | Sky Link Heights'
+    file: '/images/sky_link_heights/master-plan.avif',
+    alt: 'master plan | Sky Link Heights',
+    id: '6'
   },
   {
-    src: '/images/sky_link_heights/1BHK-unit-c.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/1BHK-unit-c.avif',
+    alt: 'Sky Link Heights',
+    id: '7'
   },
   {
-    src: '/images/sky_link_heights/2BHK-unit-b.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/2BHK-unit-b.avif',
+    alt: 'Sky Link Heights',
+    id: '8'
   },
   {
-    src: '/images/sky_link_heights/2BHK-unit-c.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/2BHK-unit-c.avif',
+    alt: 'Sky Link Heights',
+    id: '9'
   },
   {
-    src: '/images/sky_link_heights/2BHK-unit-d.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/2BHK-unit-d.avif',
+    alt: 'Sky Link Heights',
+    id: '10'
   },
   {
-    src: '/images/sky_link_heights/3BHK-flat-a.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-flat-a.avif',
+    alt: 'Sky Link Heights',
+    id: '11'
   },
   {
-    src: '/images/sky_link_heights/3BHK-flat-b.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-flat-b.avif',
+    alt: 'Sky Link Heights',
+    id: '12'
   },
   {
-    src: '/images/sky_link_heights/3BHK-flat-c.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-flat-c.avif',
+    alt: 'Sky Link Heights',
+    id: '13'
   },
   {
-    src: '/images/sky_link_heights/3BHK-flat-d.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-flat-d.avif',
+    alt: 'Sky Link Heights',
+    id: '14'
   },
   {
-    src: '/images/sky_link_heights/3BHK-unit-a.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-unit-a.avif',
+    alt: 'Sky Link Heights',
+    id: '15'
   },
   {
-    src: '/images/sky_link_heights/3BHK-unit-d.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-unit-d.avif',
+    alt: 'Sky Link Heights',
+    id: '16'
   },
   {
-    src: '/images/sky_link_heights/3BHK-unit-e.avif',
-    alt: 'Sky Link Heights'
+    file: '/images/sky_link_heights/3BHK-unit-e.avif',
+    alt: 'Sky Link Heights',
+    id: '17'
   }
 ]
-
-const sampleImages = [
-  { src: "/images/sdimg_sm.png", alt: "Architectural detail of a modern building" },
-  { src: "/images/sdimg_sm.png", alt: "Spacious living room with large windows" },
-  { src: "/images/sdimg_sm.png", alt: "Minimalist kitchen with marble countertops" },
-  { src: "/images/sdimg_sm.png", alt: "Serene bedroom with a view of the city" },
-  { src: "/images/sdimg_sm.png", alt: "Rooftop terrace with outdoor seating" },
-  { src: "/images/sdimg_sm.png", alt: "Elegant bathroom with a freestanding tub" },
-  { src: "/images/sdimg_sm.png", alt: "Exterior view of the apartment complex at dusk" },
-  { src: "/images/sdimg_sm.png", alt: "Landscaped garden area with a walkway" },
-];
 
 
 export const SkyLinkHeights = async () => {
@@ -372,13 +378,14 @@ export const SkyLinkHeights = async () => {
   const location_benefits = recordData?.location_benefits_section as unknown as LocationBenefit[] || locationBenefits;
   const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
   const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
-  console.log(location_benefits);
+  // console.log(recordData);
+  const gallery = recordData?.expand?.gallery as unknown as ImageDetails[] || staticGallery;
 
   return (
     <Layout
       title={recordData?.meta_title || "Sky Link Heights | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
       description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
-      image="/images/sky-link-heights-1.avif"
+      image="/logo.png"
       url="https://www.sundaramdevelopers.in/sky-link-heights"
       keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, sky link heights, apartments"
     >
@@ -413,7 +420,7 @@ export const SkyLinkHeights = async () => {
           {/* Right: modern rounded card */}
           <div class="md:col-span-6 flex justify-center md:justify-end">
             <div
-              class="w-full md:max-w-md relative"
+              class="w-full max-w-[400px] md:max-w-md relative"
               style={{
                 borderRadius: "72% 28% 38% 62% / 83% 30% 70% 17% ",
                 overflow: "hidden",

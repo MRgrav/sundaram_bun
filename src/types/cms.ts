@@ -42,6 +42,8 @@ export interface PageRecord {
     hero_address?: string;
     hero_highlight_one?: string;
     hero_highlight_two?: string;
+
+    expand?: any;
     
     // Map fields
     map_url?: string;

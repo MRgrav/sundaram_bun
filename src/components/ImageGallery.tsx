@@ -1,5 +1,6 @@
 import { html } from "hono/html";
 import type { FC } from "hono/jsx";
+import { ImageDetails } from "../types/cms";
 
 // Define the shape of the image data
 interface GalleryImage {
@@ -7,7 +8,7 @@ interface GalleryImage {
   alt: string;
 }
 
-export const ImageGallery: FC<{ images: GalleryImage[] }> = ({ images }) => (
+export const ImageGallery: FC<{ images: ImageDetails[] }> = ({ images }) => (
   <div class="container mx-auto px-4 py-8">
     {/* Image Grid */}
     <div
@@ -19,10 +20,10 @@ export const ImageGallery: FC<{ images: GalleryImage[] }> = ({ images }) => (
         <div class="gallery-item group relative cursor-pointer overflow-hidden rounded-lg shadow-md">
           <img
             // 👇 FIX 2: Remove the click target class from the img itself (it's redundant here)
-            src={image.src}
+            src={image.collectionId ? `${process.env.POCKETBASE_URL}/api/files/media/${image.id}/${image.file}?thumb=400x400` : image.file}
             alt={image.alt}
             // Add a specific ID for robust JS targeting
-            id={`img-${image.alt.replace(/\s/g, '-')}`}
+            id={`img-${image.id}`}
             class="w-full h-full object-cover aspect-square transform transition-transform duration-300 group-hover:scale-110"
             loading="lazy"
           />

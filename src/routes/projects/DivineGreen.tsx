@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, ImageDetails, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
   {
@@ -279,22 +279,26 @@ const specifications = [
   },
 ];
 
-const gallery = [
+const staticGallery = [
   {
-    src: '/images/divine_green/divine-green-640x480.avif',
-    alt: 'Divine Green'
+    file: '/images/divine_green/divine-green-640x480.avif',
+    alt: 'Divine Green',
+    id: '1',
   },
   {
-    src: '/images/divine_green/divine-green-3.avif',
-    alt: 'Divine Green'
+    file: '/images/divine_green/divine-green-3.avif',
+    alt: 'Divine Green',
+    id: '2',
   },
   {
-    src: '/images/divine_green/SitePlan.avif',
-    alt: 'Divine Green'
+    file: '/images/divine_green/SitePlan.avif',
+    alt: 'Divine Green',
+    id: '3',
   },
   {
-    src: '/images/divine_green/FloorPlan.avif',
-    alt: 'Divine Green'
+    file: '/images/divine_green/FloorPlan.avif',
+    alt: 'Divine Green',
+    id: '4',
   },
 ]
 
@@ -309,14 +313,17 @@ export const DivineGreen = async () => {
   const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
   const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
 
+  const gallery = recordData?.expand?.gallery as unknown as ImageDetails[] || staticGallery as any;
+
   return (
     <Layout
       title={recordData?.meta_title || "Divine Green | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
       description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
-      image="/images/sky-link-heights-1.avif"
-      url="https://sundaramdevelopers.in/sky-link-heights"
+      image="/logo.png"
+      url="https://www.sundaramdevelopers.in/sky-link-heights"
       keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, divine green"
     >
+      
 
       <section class="bg-teal-600 py-16 px-4">
         <h2 class="text-3xl font-bold text-white text-center kanit-semibold">Welcome to Divine Green</h2>

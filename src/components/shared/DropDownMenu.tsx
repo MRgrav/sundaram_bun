@@ -43,7 +43,7 @@ export const DropdownMenu: FC<ProjectDropdownMenuProps> = ({ label, sections }) 
             <div 
                 id={`content-${componentId}`}
                 // Classes define the transition, but the 'is-open' class (added by JS) toggles scale/opacity
-                class={`absolute right-0 mt-2 ${contentWidth} origin-top-left rounded-md shadow-2xl bg-white/90 ring-1 ring-black ring-opacity-5 focus:outline-none p-4 
+                class={`absolute right-0 mt-2 ${contentWidth} origin-top-left rounded-md shadow-2xl bg-white/60 ring-1 ring-black ring-opacity-5 focus:outline-none p-4 
                        transition-all duration-300 delay-100 ease-out transform scale-95 opacity-0 pointer-events-none z-50 backdrop-blur-md`}
                 role="menu" 
                 aria-orientation="vertical" 
@@ -53,9 +53,12 @@ export const DropdownMenu: FC<ProjectDropdownMenuProps> = ({ label, sections }) 
                     class={`flex ${sections.length > 1 ? 'space-x-8' : 'flex-col'}`}
                     role="none"
                 >
+                    <div class={"flex-1 min-w-40 aspect-square min-44"}>
+                        <img src='/logo.png' class="w-full h-full object-cover rounded" />
+                    </div>
                     {sections.map((section, sectionIndex) => (
                         <div key={sectionIndex} class="flex-1 min-w-48">
-                            <h3 class="text-base font-bold text-zinc-800 border-b border-zinc-300 pb-1 mb-2">
+                            <h3 class="text-base font-bold text-zinc-800 border-b border-zinc-400 pb-1 mb-2">
                                 {section.sectionTitle}
                             </h3>
                             
@@ -64,7 +67,7 @@ export const DropdownMenu: FC<ProjectDropdownMenuProps> = ({ label, sections }) 
                                     <li key={itemIndex}>
                                         <a
                                             href={item.route}
-                                            class="text-zinc-700 block p-1 hover:bg-zinc-100 hover:text-blue-600 transition-colors rounded"
+                                            class="text-zinc-800 block p-1 hover:bg-zinc-100 hover:text-blue-600 transition-colors rounded"
                                             // Add data attribute for potential future click tracking/closing
                                             data-is-link="true"
                                         >

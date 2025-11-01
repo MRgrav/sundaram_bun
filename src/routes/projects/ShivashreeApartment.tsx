@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, ImageDetails, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
     {
@@ -245,46 +245,56 @@ const specifications = [
     },
 ];
 
-const gallery = [
+const staticGallery = [
     {
         src: '/images/shivashree/shivashree_956x768.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '1'
     },
     {
         src: '/images/shivashree/floor_plan_1.webp',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '2'
     },
     {
         src: '/images/shivashree/parking.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '3'
     },
     {
         src: '/images/shivashree/plan_1.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '4'
     },
     {
         src: '/images/shivashree/plan_2.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '5'
     },
     {
         src: '/images/shivashree/plan_3.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '6'
     },
     {
         src: '/images/shivashree/shivashree_1.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '7'
     },
     {
         src: '/images/shivashree/shivashree_2.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '8'
     },
     {
         src: '/images/shivashree/shivashree_3.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '9'
     },
     {
         src: '/images/shivashree/shivashree_4.avif',
-        alt: 'Shivashree Apartment'
+        alt: 'Shivashree Apartment',
+        id: '10'
     },
 ];
 
@@ -301,14 +311,15 @@ export const ShivashreeApartment = async () => {
     const location_benefits = recordData?.location_benefits_section as unknown as LocationBenefit[] || locationBenefits;
     const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
     const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
-    console.log(premium_specifications);
+    // console.log(recordData);
+    const gallery = recordData?.expand?.gallery as unknown as ImageDetails[] || staticGallery;
 
     return (
         <Layout
             title={recordData?.meta_title || 'Shivashree Apartment || Sundaram Developers'}
             description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
-            image="/images/sky-link-heights-1.avif"
-            url="https://www.sundaramdevelopers.in/sky-link-heights"
+            image="/logo.png"
+            url="https://www.sundaramdevelopers.in/shivashree"
             keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, shivashree, apartment in tezpur, apartment"
         >
 

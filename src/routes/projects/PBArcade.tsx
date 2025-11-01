@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, ImageDetails, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
   {
@@ -271,18 +271,21 @@ const specifications = [
   },
 ];
 
-const gallery = [
+const staticGallery = [
   {
     src: '/images/pb_arcade/main_img_sm.avif',
-    alt: 'P.B Arcade'
+    alt: 'P.B Arcade',
+    id: '1'
   },
   {
     src: '/images/pb_arcade/img_1.avif',
-    alt: 'P.B Arcade'
+    alt: 'P.B Arcade',
+    id: '2'
   },
   {
     src: '/images/pb_arcade/img_2.avif',
-    alt: 'P.B Arcade'
+    alt: 'P.B Arcade',
+    id: '3'
   },
 ];
 
@@ -297,12 +300,14 @@ export const PBArcade = async () => {
   const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
   const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
 
+  const gallery = recordData?.expand?.gallery as unknown as ImageDetails[] || staticGallery;
+
   return (
     <Layout
       title={recordData?.meta_title || "P.B Arcade | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
       description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
-      image="/images/sky-link-heights-1.avif"
-      url="https://sundaramdevelopers.in/sky-link-heights"
+      image="/logo.png"
+      url="https://www.sundaramdevelopers.in/pb-arcade"
       keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, pb arcade"
     >
 

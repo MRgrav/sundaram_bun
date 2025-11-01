@@ -2,7 +2,7 @@ import { RichTextDisplay } from "../../components/cms/RichText";
 import { ImageGallery } from "../../components/ImageGallery";
 import { Layout } from "../../components/layouts/Layout";
 import { pb } from "../../lib/pocketbase";
-import { FeatureAmenity, FeatureBlock, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
+import { FeatureAmenity, FeatureBlock, ImageDetails, LocationBenefit, PageRecord, PremiumBenefitBlock } from "../../types/cms";
 
 const locationBenefits = [
   {
@@ -275,18 +275,21 @@ const specifications = [
   },
 ];
 
-const gallery = [
+const staticGallery = [
   {
-    src: '/images/horo_gauri/HoroGauri_1_540x.avif',
-    alt: 'Horo Gauri Complex'
+    file: '/images/horo_gauri/HoroGauri_1_540x.avif',
+    alt: 'Horo Gauri Complex',
+    id: '1'
   },
   {
-    src: '/images/horo_gauri/HoroGauri_2.avif',
-    alt: 'Horo Gauri Complex'
+    file: '/images/horo_gauri/HoroGauri_2.avif',
+    alt: 'Horo Gauri Complex',
+    id: '2'
   },
   {
-    src: '/images/horo_gauri/HoroGauri_3.avif',
-    alt: 'Horo Gauri Complex'
+    file: '/images/horo_gauri/HoroGauri_3.avif',
+    alt: 'Horo Gauri Complex',
+    id: '3'
   },
 ];
 
@@ -301,14 +304,76 @@ export const HoroGauriComplex = async () => {
   const features_amenities = recordData?.feature_amenities_section as unknown as FeatureBlock[] || featuresAmenities;
   const premium_specifications = recordData?.premium_benefits_section as unknown as PremiumBenefitBlock[] || premiumSpecifications;
 
+  const gallery = recordData?.expand?.gallery as unknown as ImageDetails[] || staticGallery;
+
   return (
     <Layout
       title={recordData?.meta_title || "Horo Gauri Complex | Sundaram Developers | Smart Homes in Jorhat & Guwahati"}
       description={recordData?.meta_description || "Building modern, sustainable homes in Jorhat and Guwahati. Explore our premium 1BHK, 2BHK, and 3BHK projects."}
-      image="/images/sky-link-heights-1.avif"
+      image="/logo.png"
       url="https://www.sundaramdevelopers.in/horo-gauri"
       keywords="Sundaram Developers, flats in Assam, Jorhat apartments, smart homes, horo gauri, complex"
     >
+
+      {/* hero section */}
+      <section class="w-full min-h-[65vh] flex items-center px-6 py-10 bg-linear-to-bl from-red-800/80 to-red-400/70">
+        <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          {/* Left: minimal text */}
+          <div class="md:col-span-6 text-red-950 md:mb-20">
+            <p class="text-lg text-slate-50 mb-2">{recordData?.hero_subheading || 'Modern Living in Jorhat'}</p>
+            <h1 class="text-4xl font-extrabold mb-5">{recordData?.hero_heading || 'Sky Link Heights'}</h1>
+            <div class="flex items-center gap-3">
+              {recordData?.hero_highlight_one && (
+                <div class="flex items-center gap-2 bg-slate-50/60 border border-slate-100 rounded-full px-3 py-1 text-sm">
+                  <svg class="w-4 h-4 text-sky-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" />
+                  </svg>
+                  <span>{recordData?.hero_highlight_one}</span>
+                </div>
+              )}
+
+              {recordData?.hero_highlight_two && (
+                <div class="flex items-center gap-2 bg-slate-50/60 border border-slate-100 rounded-full px-3 py-1 text-sm">
+                  <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M12 2l3 6 6 .5-4.5 4 1 6L12 17l-5.5 2.5 1-6L3 8.5 9 8 12 2z" />
+                  </svg>
+                  <span>{recordData?.hero_highlight_two}</span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right: modern rounded card */}
+          <div class="md:col-span-6 flex justify-center md:justify-end">
+            <div
+              class="w-full max-w-[400px] md:max-w-md relative "
+              style={{
+                borderRadius: "72% 28% 24% 76% / 38% 55% 45% 62% ",
+                overflow: "hidden",
+                boxShadow: "0 20px 40px rgba(2,6,23,0.25)",
+              }}
+            >
+              <img
+                src="/images/horo_gauri/HoroGauri_1_540x.avif"
+                alt="Sky Link Heights"
+                class="w-full h-100 object-cover block"
+              />
+
+              <div class="absolute left-28 bottom-18 bg-white/90 backdrop-blur-sm shadow rounded-full px-3 py-1.5 flex items-center gap-2 text-sm">
+                <span class="font-medium text-slate-900">Horo Gauri Complex</span>
+              </div>
+            </div>
+          </div>
+          <div class={"flex md:col-span-12 font-semibold"}>
+            <div class="flex items-center gap-2 text-slate-800 md:-mt-20">
+              <svg class="w-5 h-5 text-zinc-900 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
+              </svg>
+              <span>{recordData?.hero_address || 'Assam'}</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="bg-red-600 py-16 px-4">
         <h2 class="text-3xl font-bold text-white text-center kanit-semibold">Welcome to Horo Gauri Complex</h2>
