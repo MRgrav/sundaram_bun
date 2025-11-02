@@ -100,14 +100,18 @@ export const Dashboard = async () => {
                 </form>
             </div>
 
-            <div class={""}>
+            <div class={"p-2 font-semibold text-xl mb-10"}>
+                <a href={"/adi/gallery"} class={"bg-green-700 text-white p-4 py-6 text-center aspect-video"}>Image Gallery</a>
+            </div>
+
+            {/* <div class={""}>
                 <h2 class="text-xl font-semibold text-zinc-700">Projects</h2>
                 <div class={"flex flex-col gap-2 "}>
                     {projects && projects.map((item, index) => (
                         <ProjectCard path={item.path} label={item.label} key={index} />
                     ))}
                 </div>
-            </div>
+            </div> */}
             <div class={""}>
                 <div class={"flex flex-col mt-4"}>
                     <h2 class="text-xl font-semibold text-zinc-700">Queries</h2>

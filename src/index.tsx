@@ -18,6 +18,7 @@ import { authRequired } from './middleware/auth';
 import { authRoutes } from './routes/auth';
 import { ProjectGaellry } from './routes/admin/gallery';
 import { NotFound } from './routes/public/NotFound';
+import { appendTrailingSlash } from 'hono/trailing-slash';
 // import authApp from './routes/admin/authApp';
 // import { compress } from 'hono-compress';
 
@@ -26,6 +27,7 @@ const app = new Hono();
 // app.use(compress());
 app.use(logger())
 app.use(secureHeaders())
+app.use(appendTrailingSlash())
 
 // --- Static files
 app.use("/output.css", serveStatic({ path: "./public/output.css" }));

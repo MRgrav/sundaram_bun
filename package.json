@@ -1,10 +1,10 @@
 {
   "name": "sundaram",
   "scripts": {
-    "dev": "bun run build:css && bun --hot src/index.tsx",
+    "dev": "bun run build:css --minify && bun --hot src/index.tsx",
     "build:css": "bunx tailwindcss -i ./src/styles/main.css -o ./public/output.css",
     "watch:css": "bunx tailwindcss -i ./src/styles/main.css -o ./public/output.css --watch",
-    "start": "bun run build:css && bun src/index.tsx"
+    "start": "bun run build:css --minify && bun src/index.tsx"
   },
   "dependencies": {
     "hono": "^4.10.3",

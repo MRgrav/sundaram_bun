@@ -65,7 +65,7 @@ export const Layout = ({
         </script> */}
   
         {/* --- Favicon --- */}
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
       </head>
       <body class="bg-zinc-100 text-zinc-800 antialiased">
           {/* <SplashScreen  */}
