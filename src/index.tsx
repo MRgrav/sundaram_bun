@@ -55,7 +55,7 @@ app.get("/contact/", (c) => c.html(<Contact />));
 
 // --- AUTH ROUTES ---
 app.get("/^^/login", (c) => c.html(<Login />)); // Mounts /login, /register, /logout
-app.get("/^^/registration", (c) => c.html(<Registration />));
+app.get("/^^/registration", (c) => c.html(<Login />));    // to enable registration 
 app.get("/adi/dashboard", authRequired, (c) => c.html(<Dashboard />));
 app.get("/adi/gallery", authRequired, (c) => c.html(<ProjectGaellry />));
 

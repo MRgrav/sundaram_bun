@@ -48,9 +48,9 @@ export const Login = () => {
                         </button>
                     </form>
 
-                    <center>
+                    {/* <center>
                         <a href="/^^/registration" class={"text-sm text-blue-800"}>Create new account!</a>
-                    </center>
+                    </center> */}
                 </div>
             </div>
         </AuthLayout>

@@ -93,14 +93,14 @@ export const Dashboard = async () => {
                 </table>
             </div>
 
-            <div class={"flex justify-between gap-3 mb-8"}>
+            <div class={"md:hidden flex justify-between gap-3 mb-8"}>
                 <h1>Dashboard</h1>
                 <form method="post" action={"/^/logout"}>
                     <button type="submit" class={"px-2 py-0.5 text-sm rounded bg-red-500 text-white shadow"} >Logout</button>
                 </form>
             </div>
 
-            <div class={"p-2 font-semibold text-xl mb-10"}>
+            <div class={"md:hidden p-2 font-semibold text-xl mb-10"}>
                 <a href={"/adi/gallery"} class={"bg-green-700 text-white p-4 py-6 text-center aspect-video"}>Image Gallery</a>
             </div>
 
