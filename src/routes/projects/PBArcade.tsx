@@ -23,7 +23,7 @@ const locationBenefits = [
   {
     iconPath: '/icons/hospital-fill.svg',
     distance: "5 km",
-    label: "Jorhat Medical College & 'Hospital'",
+    label: "Jorhat Medical College & Hospital",
   },
   {
     iconPath: '/icons/graduation-cap-fill.svg',
